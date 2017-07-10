@@ -1,8 +1,18 @@
 Q: How to create CDN using tomcat
 A: We ca create Content Delivery network using Tomcat by simple settings.
    Following steps need to perform :
-   1.
-   2.
-   3.
-   4.
-   5.
+   1. Go to server path -> apache-tomcat\conf
+   2. Open and Edit file -> server.xml
+   3. add one line inside Host tag <Context docBase="D:/proj" path="/proj" />
+      Example:
+      <Host name="localhost"  appBase="webapps"
+            unpackWARs="true" autoDeploy="false">
+                <Context docBase="D:/proj" path="/proj" />
+        <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+               prefix="localhost_access_log." suffix=".txt"
+               pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+      </Host>
+   4. docBase - It is a path of all content
+   5. path - It is a context that will use with URL to locate docBase
+   6. hit htt://<ip:port>/path to get your content from broswer
+   
